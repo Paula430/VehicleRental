@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Booking Now";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="mt-3 p-3 box-shadow rounded">
+                <div class="text-center bprder-bottom p-3">
+                    <h2 class="text-info">Booking Now</h2>
+                </div>
+                <div>
+                    @Html.ValidationSummary()
+                </div>
+                <div class="p-3">
+                    <form action="/Rent/Add" method="post" autocomplete="off">
+                        <div id="locationDetails">
+                            <div class="mb-3 row">
+                                <label class="col-3 col-form-label text-info">Start rent</label>
+                                <div class="col-9">
+                                     <input type="datetime" id="datarental" class="form-control" placeholder="Enter date start"/>
+                                </div>
+                            </div>
+                             <div class="mb-3 row">
+                                <label class="col-3 col-form-label text-info">DropOff</label>
+                                <div class="col-9">
+                                     <input type="datetime" id="datadropoff" class="form-control" placeholder="Enter date dropoff"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="customerdetails">
+                            <div class="mb-3 row">
+                                 <label class="col-3 col-form-label text-info">Name</label>
+                                 <div class="col-9">
+                                     <input type="text" id="customername" class="form-control" placeholder="Enter name"/>
+                                </div>
+                            </div>
+                             <div class="mb-3 row">
+                                 <label class="col-3 col-form-label text-info">Email</label>
+                                 <div class="col-9">
+                                     <input type="email" id="customeremail" class="form-control" placeholder="Enter email"/>
+                                </div>
+                            </div>
+                             <div class="mb-3 row">
+                                <label class="col-3 col-form-label text-info">Address</label>
+                                <div class="col-9">
+                                     <input type="text" id="address" class="form-control" placeholder="Enter address"/>
+                                </div>
+                             </div>
+                             <div class="mb-3 row">
+                                <label class="col-3 col-form-label text-info">Mobile Number</label>
+                                <div class="col-9">
+                                     <input type="text" id="mobilenumber" class="form-control" placeholder="Enter mobile number"/>
+                                </div>
+                            </div>
+                              <div class="mb-3">
+                                <button class="btn btn-sm p-2 btn-dark" type="button">Clear</button>
+                                <button class="btn btn-sm p-2 btn-success" type="button">Book Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

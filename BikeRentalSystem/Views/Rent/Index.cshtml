@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Rent";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="mt-3 p-3 shadow rounded">
+                <div class="d-flex justify-content-between border-bottom mb-3">
+                    <h2 class="text-info">Rent List</h2>
+                    @Html.ActionLink("Book Now","Add","Rent", null, new {@class="btn btn-sm btn-primary"})
+                </div>
+                <div class="mt-3 p-3">
+                    <table class="table table-responsive table-bordered text-center">
+                        <thead class="text-info">
+                            <tr>
+                                <th>ID</th>
+                                <th>DataRental</th>
+                                <th>DropOff Date</th>
+                                <th>IDVehicle</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Mobile Number</th>
+                                <th>Address</th>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
