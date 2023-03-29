@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
+
 namespace BikeRentalSystem.Models
 {
     public class Functions

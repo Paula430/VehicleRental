@@ -3,12 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BikeRentalSystem.Models
 {
-    public class Bike : Vehicle
+    public class Scooter : Vehicle
     {
         [Required]
-        public string Size { get; set; }
-       
+        public bool Electric { get; set; }
+        [Required]
+        public int Hight { get; set; }
        
     }
-    
+
+   
 }

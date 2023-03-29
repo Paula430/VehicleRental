@@ -1,15 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BikeRentalSystem.Repository;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace BikeRentalSystem.Controllers
 {
     public class BikeController : Controller
     {
         private readonly IData data;
+        private IMemoryCache cache;
 
-        public BikeController(IData _data)
+        public BikeController(IData _data, IMemoryCache memoryCache)
         {
             data = _data;
+            cache = memoryCache;
         }
        
         public IActionResult Index()
