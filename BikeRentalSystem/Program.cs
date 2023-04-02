@@ -15,6 +15,7 @@ builder.Services.AddTransient(typeof(IData),typeof(Data));
 builder.Services.AddHttpClient();
 builder.Services.AddDbContext<BikeRentalContext>(item => item.UseSqlServer(connectionString));
 
+
 var app = builder.Build();
 
 

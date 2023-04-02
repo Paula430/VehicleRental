@@ -1,4 +1,41 @@
-﻿@{
+﻿@model List<Scooter>
+@{
     ViewData["Title"] = "Scooter";
 }
-<h2>Scooter Page</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="mt-3 p-3 shadow rounded">
+                <div class="d-flex justify-content-between nb-3 p-3">
+                    <h3 class="text-info">Scooters List</h3>
+                    @Html.ActionLink("Add New Scooter","Add","Scooter",null, new {@class="btn btn-sn btn-primary"})
+                </div>
+                <div>
+                    <table class="table table-responsive table-bordered text-info text-center">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Type</th>
+                                <th>Wheel</th>
+                                <th>Electric</th>
+                                <th>Hight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @* @foreach(var item in Model)
+                            {
+                                <tr>
+                                    <td><a href="BikeDetails"> <img src="~/images/Vehicles/evado_1.0_czarny_grafit_m_mat_1_2.jpg" height="50px" width="80px"></a></td>
+                                    <td>@item.Type</td>
+                                    <td>@item.Wheel</td>
+                                    <td>@item.Electric</td>
+                                    <td>@item.Hight</td>    
+                                </tr>
+                            }*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

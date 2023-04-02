@@ -12,9 +12,10 @@ namespace BikeRentalSystem.Models
         [Required]
         public string WheelHardness { get; set; }
     }
-     
-
+    
 }
+
+
 
 
 

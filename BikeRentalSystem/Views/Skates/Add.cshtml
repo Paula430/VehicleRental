@@ -1,6 +1,8 @@
-﻿@model BikeRentalSystem.Models.Bike
+﻿
+
+@model BikeRentalSystem.Models.Skates;
 @{
-    ViewData["Title"] = "Add New Bike";
+    ViewData["Title"] = "Add New Skates";
 }
 
 <div class="container">
@@ -8,13 +10,13 @@
         <div class="col-6 offset-3">
             <div class="mt-3 p-3 shadow rounded">
                 <div class="text-center border-bottom">
-                    <h2 class="text-info">Add New Bike</h2>
+                    <h2 class="text-info">Add New Skates</h2>
                 </div>
                 <div>
                     @Html.ValidationSummary()
                 </div>
                 <div class="mt-3 p-3">
-                    <form action="/Bike/Add" method="post" enctype="multipart/form-data" autocomplete="off">
+                    <form action="/Skates/Add" method="post" enctype="multipart/form-data" autocomplete="off">
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label text-info">Type</label>
                         <div class="col-9">
@@ -24,21 +26,20 @@
                      <div class="mb-3 row">
                         <label class="col-3 col-form-label text-info">Size</label>
                         <div class="col-9">
-                            <select name="Size" class="form-select">
-                                <option value="">Select Size</option>
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                                <option value="XXL">XXL</option>
-                            </select>
+                             @Html.TextBoxFor(m=>m.Size, new{@class="form-control",placeholder="Enter Size"})
                         </div>
                     </div>
                      <div class="mb-3 row">
                         <label class="col-3 col-form-label text-info">Wheel</label>
                         <div class="col-9">
                             @Html.TextBoxFor(m=>m.Wheel, new{@class="form-control",placeholder="Enter Wheel"})
+                        </div>
+                    </div>
+                     <div class="mb-3 row">
+                        <label class="col-3 col-form-label text-info">Wheel Hardness</label>
+                        <div class="col-9">
+                            @*<input value="true"/>*@
+                            @Html.TextBoxFor(m=>m.WheelHardness, new{@class="form-control",placeholder="Enter Wheel Hardness"})
                         </div>
                     </div>
                     @* <div class="mb-3 row">
@@ -57,4 +58,5 @@
         </div>
     </div>
 </div>
+
 

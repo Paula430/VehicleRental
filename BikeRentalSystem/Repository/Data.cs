@@ -1,76 +1,43 @@
 ﻿using BikeRentalSystem.Models;
-using System.Runtime.Versioning;
-using Microsoft.AspNetCore.Hosting;
-
+using System.Data.Entity;
 
 namespace BikeRentalSystem.Repository
 {
     public class Data: IData
     {
-        private readonly IConfiguration configuration;
-        private readonly string dbcon = "";
+       
         private readonly IWebHostEnvironment webHost;
+        private readonly BikeRentalContext _context;
 
-        public Data()
+        public Data(BikeRentalContext context)
         {
-            this.configuration = configuration;
-            dbcon = this.configuration.GetConnectionString("dbConnection");
+            _context = context;
         }
-
-        [SupportedOSPlatform("windows")]
 
         public List<Bike> GetAllBikes()
         {
-            List<Bike> bikes = new List<Bike>();
-            return bikes;
+            var data= _context.Bikes.ToList();
+            return data;
         }
+
         public List<Scooter> GetAllScooters()
         {
-            List<Scooter> scooters= new List<Scooter>();
-            return scooters;
+            var data = _context.Scooters.ToList();
+            return data;
         }
+
         public List<Skates> GetAllSkates()
         {
             List<Skates> skates = new List<Skates>();
             return skates;
         }
 
-        [SupportedOSPlatform("windows")]
         public bool AddNewVehicle(Vehicle newVehicle)
         {
-            bool isSaved = false;
-            try
-            {
-                //open con
-                newVehicle.ImagePath = SaveImage(newVehicle.VehicleImage, "vehicles");
-                
-                if (newVehicle is Bike)
-                {
-                    
-
-                }
-                else if (newVehicle is Scooter)
-                {
-                    isSaved = true;
-
-                }
-                else
-                {
-                    isSaved = true;
-
-                }
-
-            }
-            catch(Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                //close con 
-            };
-
-            return isSaved;
+                bool isSaved = false;
+                _context.Vehicles.Add(newVehicle);
+                _context.SaveChanges();
+                return true;           
         }
 
         public Bike GetBike(int id)

@@ -11,11 +11,11 @@ namespace BikeRentalSystem.Models
         public string Type { get; set; }
         [Required]
         public string Wheel { get; set; }
-        [NotMapped]
+        //[NotMapped]
  
-        public IFormFile VehicleImage { get; set; }
+        //public IFormFile VehicleImage { get; set; }
 
-        public string ImagePath { get; set; }
+        //public string ImagePath { get; set; }
 
     }
  
