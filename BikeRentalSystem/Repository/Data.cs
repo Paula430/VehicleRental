@@ -61,7 +61,7 @@ namespace BikeRentalSystem.Repository
             return true;
         }
 
-        public bool AddRent()
+        public bool AddRent(Rent rent)
         {
             return true;
         }

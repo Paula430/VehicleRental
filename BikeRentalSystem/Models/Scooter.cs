@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace BikeRentalSystem.Models
@@ -12,5 +13,18 @@ namespace BikeRentalSystem.Models
        
     }
 
-   
+    public class ScooterValidator : AbstractValidator<Scooter>
+    {
+        public ScooterValidator()
+        {
+            RuleFor(x => x.Electric)
+                .NotNull().WithMessage("Pole 'Electric' jest wymagane.");
+
+            RuleFor(x => x.Hight)
+                .NotNull().WithMessage("Pole 'Hight' jest wymagane.")
+                .InclusiveBetween(50, 200).WithMessage("Pole 'Hight' musi być między {From} a {To}.");
+        }
+    }
+
+
 }

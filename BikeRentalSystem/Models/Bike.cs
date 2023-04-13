@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace BikeRentalSystem.Models
@@ -7,8 +8,17 @@ namespace BikeRentalSystem.Models
     {
         [Required]
         public string Size { get; set; }
-       
+
        
     }
-    
+    public class BikeValidator : AbstractValidator<Bike>
+    {
+        public BikeValidator()
+        {
+
+            RuleFor(b => b.Size).NotEmpty().WithMessage("Size is required");
+
+        }
+    }
+
 }

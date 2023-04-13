@@ -1,6 +1,7 @@
 ﻿using BikeRentalSystem.Models;
 using BikeRentalSystem.Repository;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
 
 namespace BikeRentalSystem.Controllers
 {
@@ -8,15 +9,21 @@ namespace BikeRentalSystem.Controllers
     {
 
         private readonly IData data;
+        private readonly IMapper mapper;
 
-        public ScooterController(IData _data)
+
+        public ScooterController(IData _data, IMapper _mapper)
         {
             data = _data;
+            mapper= _mapper;
+
         }
 
         public IActionResult Index()
         {
-            return View();
+            var scooters = data.GetAllScooters();
+            var scooterModels = mapper.Map<List<Scooter>>(scooters);
+            return View(scooterModels);
         }
         public IActionResult Add()
         {
@@ -34,7 +41,5 @@ namespace BikeRentalSystem.Controllers
             ModelState.Clear();
             return View();
         }
-
-
     }
 }

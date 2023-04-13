@@ -15,7 +15,7 @@ namespace BikeRentalSystem.Repository
         bool AddNewVehicle(Vehicle newVehicle);
         string SaveImage(IFormFile file, string folderName);
         bool DeleteVehicle(int Id);
-        public bool AddRent();
+        public bool AddRent(Rent rent);
         public bool DeleteRent();
         
     }
