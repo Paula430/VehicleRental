@@ -17,6 +17,8 @@ namespace BikeRentalSystem.Models
         public DbSet<Rent> Rents { get; set; }
         public DbSet<Scooter> Scooters { get; set; }
         public DbSet<Bike> Bikes { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+
 
 
     }

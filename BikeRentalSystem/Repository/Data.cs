@@ -14,6 +14,13 @@ namespace BikeRentalSystem.Repository
             _context = context;
         }
 
+        public List<Customer> GetAllCustomers()
+        {
+            var data=_context.Customers.ToList();
+            return data;
+        }
+
+
         public List<Bike> GetAllBikes()
         {
             var data= _context.Bikes.ToList();
@@ -91,6 +98,19 @@ namespace BikeRentalSystem.Repository
                 throw;
             }
             return imagePath;
+        }
+
+        public  Customer GetCustomerByEmail(string email)
+        {
+            return _context.Customers.FirstOrDefault(c => c.Email == email);
+        }
+
+
+        public void AddCustomer(Customer user)
+        {
+           
+            _context.Customers.Add(user);
+            _context.SaveChanges();
         }
 
 

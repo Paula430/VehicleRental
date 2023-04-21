@@ -8,6 +8,9 @@ using Microsoft.Extensions.Hosting;
 using System.Configuration;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("dbConnection");
@@ -19,6 +22,14 @@ builder.Services.AddTransient(typeof(IData),typeof(Data));
 builder.Services.AddHttpClient();
 builder.Services.AddDbContext<BikeRentalContext>(item => item.UseSqlServer(connectionString));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+//builder.Services.AddIdentity<Customer, IdentityRole>()
+//                .AddEntityFrameworkStores<BikeRentalContext>()
+//                .AddDefaultTokenProviders();
+
+//builder.Services.AddScoped<IUserStore<Customer>, CustomerStore>();
+
+//builder.Services.AddSignInManager<Customer>();
 
 builder.Services.AddControllersWithViews().AddMvcOptions(options =>
                 {
